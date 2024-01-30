@@ -1,0 +1,24 @@
+{
+   "Username": "peter",
+   "PasswordHash": "pwhas",
+   "PasswordSalt": "pwsalt",
+   "Email": "peter@gmail.com",
+   "Phone": "12345",
+   "Mobile": "123443",
+   "FirstName": "Peter",
+   "LastName": "Kiraly",
+   "Country": "Hungary",
+   "City": "MiklosCty",
+   "Zip": "2310",
+   "Address": "Iskola street",
+   "BillingAddressId": 1,
+   "Status": 0,
+   "IsValidated": 0,
+   "ValidationUrl": "url",
+   "IsAdmin": 0   
+}
+
+{
+   "Username": "peter",   
+   "Email": "peter@gmail.com"    
+}
