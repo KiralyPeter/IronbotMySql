@@ -71,3 +71,6 @@ CREATE TABLE `shortuser` (
 );
 
 INSERT INTO `shortuser` (`Id`, `Username`, `Email`, `TimeStamp`) VALUES (NULL, 'peter', 'peter@valahol.com', current_timestamp());
+
+ALTER TABLE `shortuser` ADD `password` VARCHAR(30) NOT NULL AFTER `Username`;
+UPDATE `shortuser` SET `password` = '12345' WHERE `shortuser`.`Id` = 1;
