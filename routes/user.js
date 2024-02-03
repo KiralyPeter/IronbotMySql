@@ -5,6 +5,8 @@ const router = express.Router();
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
+const nodemailer = require('nodemailer');
+
 router.post("/signup", (req, res) => {
   let user = req.body;
   query = "SELECT Email FROM shortuser WHERE Email=?";
@@ -55,6 +57,7 @@ router.post("/login", (req, res) => {
         return res
           .status(401)
           .json({ message: "Hibás felhasználó név vagy jelszó..." });
+      // else if (ide még egy felhasználó státusz ellenőrzés is jöhetne...) {}
       } else if (results[0].Password == user.Password) {
         const response = { Email: results[0].Email };
         const accessToken = jwt.sign(response, process.env.ACCESS_TOKEN, {
@@ -62,12 +65,24 @@ router.post("/login", (req, res) => {
         });
         res.status(200).json({ token: accessToken });
       } else {
-        return res.status(400).json({ message: "Egyébn hiba történt..." });
+        return res.status(400).json({ message: "Egyéb hiba történt..." });
       }
     } else {
       return res.status(500).json(err);
     }
   });
 });
+
+router.get("/getalluser", (req, res) =>{
+  var query = "SELECT Id, Username, Email from shortuser";
+  connection.query(query, (err, results) => {
+    if(!err){
+      return res.status(200).json(results);
+    }
+    else{
+      return res.status(500).json(err);
+    }
+  })
+})
 
 module.exports = router;
