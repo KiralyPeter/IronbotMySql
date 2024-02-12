@@ -7,7 +7,7 @@ orange { color: orange }
 
 # IronBot backend MySQL/MariaDB adatbázishoz
 
-## Jelenlegi verzió (2024-01-30)
+## Jelenlegi verzió (2024-02-12)
 
 A projekt beüzemelése:
 ```
